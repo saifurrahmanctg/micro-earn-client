@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #2bb673;
+  --secondary: #333333;
+  --bg-light: #f9f9f9;
+}
+
+body {
+  margin: 0;
+  font-family: 'Outfit', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-[#2bb673] hover:bg-[#239a5f] text-white border-none transition-all duration-300 rounded-[4px] px-8 py-3 font-semibold;
+  }
+  
+  .card-premium {
+    @apply bg-white border border-gray-100 shadow-sm hover:shadow-premium transition-all duration-300 rounded-[6px] p-6;
+  }
+}
+
+.hero-gradient {
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1521737711867-e3b97375f902?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+  background-size: cover;
+  background-position: center;
+}
+
+/* Custom transitions and animations */
+.fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-[#0f172a];
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-[#2bb673] rounded-full;
+}
