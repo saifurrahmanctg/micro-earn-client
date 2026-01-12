@@ -14,7 +14,7 @@ const Footer = () => {
                         <a href="#" className="hover:text-[#2bb673] transition-colors bg-white/5 p-3 rounded-full"><FaFacebook /></a>
                         <a href="#" className="hover:text-[#2bb673] transition-colors bg-white/5 p-3 rounded-full"><FaTwitter /></a>
                         <a href="#" className="hover:text-[#2bb673] transition-colors bg-white/5 p-3 rounded-full"><FaLinkedin /></a>
-                        <a href="#" className="hover:text-[#2bb673] transition-colors bg-white/5 p-3 rounded-full"><FaGithub /></a>
+                        <a href="https://github.com/saifurrahmanctg/micro-earn-client" target="_blank" rel="noreferrer" className="hover:text-[#2bb673] transition-colors bg-white/5 p-3 rounded-full"><FaGithub /></a>
                     </div>
                 </div>
                 <div>
@@ -39,7 +39,7 @@ const Footer = () => {
                     <h3 className="text-xl font-bold mb-6 text-[#2bb673]">Newsletter</h3>
                     <p className="text-gray-400 mb-6 leading-relaxed">Subscribe to get the latest tasks and updates in your inbox.</p>
                     <div className="join w-full">
-                        <input className="input input-bordered join-item bg-white/5 border-gray-600 focus:border-[#2bb673] w-full" placeholder="Email Address"/>
+                        <input className="input input-bordered join-item bg-white/5 border-gray-600 focus:border-[#2bb673] w-full" placeholder="Email Address" />
                         <button className="btn btn-primary join-item">Join</button>
                     </div>
                 </div>
