@@ -40,8 +40,9 @@ const Navbar = () => {
                         {navLinks}
                     </ul>
                 </div>
-                <Link to="/" className="flex items-center gap-2 group">
-                    <span className="text-2xl font-bold text-[#333333] tracking-tight group-hover:text-[#2bb673] transition-colors">Micro<span className="text-[#2bb673]">Earn</span></span>
+                <Link to="/" className="flex items-center gap-0 group">
+                    <span className="flex items-center"><img src="/microearn-icon.png" className="w-6" alt="" /></span>
+                    <span className="text-2xl font-bold text-[#333333] tracking-tight group-hover:text-[#2bb673] transition-colors">icro<span className="text-[#2bb673]">Earn</span></span>
                 </Link>
             </div>
             <div className="navbar-center hidden lg:flex">
