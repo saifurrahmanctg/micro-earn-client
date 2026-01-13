@@ -13,8 +13,8 @@ const Payment = () => {
 
     return (
         <div className="max-w-3xl mx-auto fade-in">
-            <div className="bg-white rounded-2xl shadow-premium border border-gray-100 overflow-hidden">
-                <div className="bg-[#333333] p-10 text-white flex justify-between items-center">
+            <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-premium border border-gray-100 dark:border-gray-700 overflow-hidden transition-colors duration-300">
+                <div className="bg-[#333333] dark:bg-black/50 p-10 text-white flex justify-between items-center transition-colors">
                     <div>
                         <h2 className="text-2xl font-bold mb-2">Secure <span className="text-[#2bb673]">Checkout</span></h2>
                         <p className="text-gray-400 text-sm font-medium">Complete your purchase to add coins to your wallet</p>
@@ -26,14 +26,14 @@ const Payment = () => {
                 </div>
 
                 <div className="p-10">
-                    <div className="mb-10 bg-gray-50 p-6 rounded-xl border border-gray-100 flex items-center justify-between">
+                    <div className="mb-10 bg-gray-50 dark:bg-gray-700/50 p-6 rounded-xl border border-gray-100 dark:border-gray-700 flex items-center justify-between transition-colors">
                         <div className="flex items-center gap-4">
-                            <div className="w-12 h-12 rounded-lg bg-white shadow-sm flex items-center justify-center text-[#2bb673]">
+                            <div className="w-12 h-12 rounded-lg bg-white dark:bg-gray-800 shadow-sm flex items-center justify-center text-[#2bb673]">
                                 <FaShieldAlt />
                             </div>
                             <div>
                                 <span className="text-xs font-bold text-gray-400 uppercase tracking-widest">Order Review</span>
-                                <p className="text-lg font-bold text-[#333333]">Purchase {coins} Micro-Earn Coins</p>
+                                <p className="text-lg font-bold text-[#333333] dark:text-white">Purchase {coins} Micro-Earn Coins</p>
                             </div>
                         </div>
                     </div>
@@ -42,7 +42,7 @@ const Payment = () => {
                         <CheckoutForm price={price} coins={coins} />
                     </Elements>
 
-                    <div className="mt-10 pt-10 border-t border-gray-50 flex flex-col items-center">
+                    <div className="mt-10 pt-10 border-t border-gray-50 dark:border-gray-700 flex flex-col items-center transition-colors">
                         <div className="flex items-center gap-6 opacity-30 grayscale mb-6">
                             <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="visa" className="h-4" />
                             <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="mastercard" className="h-6" />
