@@ -5,6 +5,7 @@ import useAuth from "../../../hooks/useAuth";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import { FaCreditCard, FaLock } from "react-icons/fa";
+import useTheme from "../../../hooks/useTheme";
 
 const CheckoutForm = ({ price, coins }) => {
     const [error, setError] = useState('');
@@ -15,14 +16,23 @@ const CheckoutForm = ({ price, coins }) => {
     const elements = useElements();
     const axiosSecure = useAxiosSecure();
     const { user } = useAuth();
+    const { theme } = useTheme();
     const navigate = useNavigate();
 
     useEffect(() => {
         if (price > 0) {
             axiosSecure.post('/create-payment-intent', { price: price })
                 .then(res => {
-                    setClientSecret(res.data.clientSecret);
+                    if (res.data.clientSecret) {
+                        setClientSecret(res.data.clientSecret);
+                    } else {
+                        setError("Failed to initialize payment. Please check your keys.");
+                    }
                 })
+                .catch(err => {
+                    console.error("Payment intent error:", err);
+                    setError(err.response?.data?.message || "Failed to connect to payment server.");
+                });
         }
     }, [axiosSecure, price])
 
@@ -102,13 +112,13 @@ const CheckoutForm = ({ price, coins }) => {
                 <label className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4 block flex items-center gap-2">
                     <FaCreditCard className="text-[#2bb673]" /> Credit or Debit Card
                 </label>
-                <div className="p-5 border-2 border-gray-100 rounded-xl bg-[#f9f9f9] focus-within:border-[#2bb673] transition-all">
+                <div className="p-5 border-2 border-gray-100 dark:border-gray-600 rounded-xl bg-[#f9f9f9] dark:bg-gray-700 focus-within:border-[#2bb673] transition-all">
                     <CardElement
                         options={{
                             style: {
                                 base: {
                                     fontSize: '16px',
-                                    color: '#333333',
+                                    color: theme === 'dark' ? '#ffffff' : '#333333',
                                     fontFamily: 'Montserrat, sans-serif',
                                     '::placeholder': {
                                         color: '#aab7c4',
@@ -123,12 +133,12 @@ const CheckoutForm = ({ price, coins }) => {
                 </div>
             </div>
 
-            {error && <p className="text-red-500 text-sm font-bold mb-4 bg-red-50 p-4 rounded-lg border border-red-100">{error}</p>}
-            
-            <button 
-                type="submit" 
+            {error && <p className="text-red-500 text-sm font-bold mb-4 bg-red-50 dark:bg-red-900/20 p-4 rounded-lg border border-red-100 dark:border-red-800">{error}</p>}
+
+            <button
+                type="submit"
                 disabled={!stripe || !clientSecret || processing}
-                className={`w-full h-16 rounded-xl text-lg font-black uppercase tracking-widest shadow-lg flex items-center justify-center gap-3 transition-all ${!stripe || !clientSecret || processing ? 'bg-gray-100 text-gray-300 cursor-not-allowed' : 'bg-[#2bb673] text-white hover:bg-[#249a61] shadow-green-200/50'}`}
+                className={`w-full h-16 rounded-xl text-lg font-black uppercase tracking-widest shadow-lg flex items-center justify-center gap-3 transition-all ${!stripe || !clientSecret || processing ? 'bg-gray-100 dark:bg-gray-700 text-gray-300 dark:text-gray-500 cursor-not-allowed' : 'bg-[#2bb673] text-white hover:bg-[#249a61] shadow-green-200/50 dark:shadow-none'}`}
             >
                 {processing ? (
                     <span className="loading loading-spinner loading-md"></span>
