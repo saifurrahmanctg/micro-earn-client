@@ -53,15 +53,15 @@ const ManageUsers = () => {
     return (
         <div className="fade-in">
             <div className="mb-10">
-                <h2 className="text-3xl font-bold text-[#333333]">Manage <span className="text-[#2bb673]">Users</span></h2>
-                <p className="text-gray-500 font-medium">Platform-wide user administration and role management</p>
+                <h2 className="text-3xl font-bold text-[#333333] dark:text-white">Manage <span className="text-[#2bb673]">Users</span></h2>
+                <p className="text-gray-500 dark:text-gray-400 font-medium">Platform-wide user administration and role management</p>
             </div>
 
-            <div className="bg-white rounded-2xl border border-gray-100 shadow-premium overflow-hidden">
+            <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-premium overflow-hidden transition-colors duration-300">
                 <div className="overflow-x-auto">
                     <table className="table w-full border-collapse">
                         <thead>
-                            <tr className="bg-[#f9f9f9] text-gray-400 uppercase text-[10px] tracking-widest font-black border-b border-gray-100">
+                            <tr className="bg-[#f9f9f9] dark:bg-gray-700 text-gray-400 uppercase text-[10px] tracking-widest font-black border-b border-gray-100 dark:border-gray-600">
                                 <th className="py-6 px-8 text-left">User Profile</th>
                                 <th>Role</th>
                                 <th>Coins</th>
@@ -69,26 +69,25 @@ const ManageUsers = () => {
                                 <th className="text-center px-8">Actions</th>
                             </tr>
                         </thead>
-                        <tbody className="divide-y divide-gray-50">
+                        <tbody className="divide-y divide-gray-50 dark:divide-gray-700">
                             {users.map((user) => (
-                                <tr key={user._id} className="hover:bg-green-50/20 transition-colors group">
+                                <tr key={user._id} className="hover:bg-green-50/20 dark:hover:bg-green-900/10 transition-colors group">
                                     <td className="py-5 px-8">
                                         <div className="flex items-center gap-4">
-                                            <div className="w-12 h-12 rounded-xl overflow-hidden border-2 border-gray-100 p-0.5">
+                                            <div className="w-12 h-12 rounded-xl overflow-hidden border-2 border-gray-100 dark:border-gray-700 p-0.5">
                                                 <img src={user.photo_url} alt="u" className="w-full h-full object-cover rounded-lg" />
                                             </div>
                                             <div className="flex flex-col">
-                                                <span className="font-bold text-[#333333] group-hover:text-[#2bb673] transition-colors">{user.name}</span>
+                                                <span className="font-bold text-[#333333] dark:text-white group-hover:text-[#2bb673] transition-colors">{user.name}</span>
                                                 <span className="text-xs text-gray-400 font-medium">{user.email}</span>
                                             </div>
                                         </div>
                                     </td>
                                     <td>
-                                        <div className={`px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest w-fit flex items-center gap-2 border ${
-                                            user.role === 'admin' ? 'bg-purple-100 text-purple-600 border-purple-200' :
-                                            user.role === 'buyer' ? 'bg-blue-100 text-blue-600 border-blue-200' :
-                                            'bg-green-100 text-green-600 border-green-200'
-                                        }`}>
+                                        <div className={`px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest w-fit flex items-center gap-2 border ${user.role === 'admin' ? 'bg-purple-100 text-purple-600 border-purple-200' :
+                                                user.role === 'buyer' ? 'bg-blue-100 text-blue-600 border-blue-200' :
+                                                    'bg-green-100 text-green-600 border-green-200'
+                                            }`}>
                                             {user.role === 'admin' ? <FaUserShield /> : user.role === 'buyer' ? <FaUserTie /> : <FaHardHat />}
                                             {user.role}
                                         </div>
@@ -96,14 +95,14 @@ const ManageUsers = () => {
                                     <td>
                                         <div className="flex items-center gap-2">
                                             <FaCoins className="text-yellow-500 text-sm" />
-                                            <span className="font-black text-[#333333]">{user.coins || 0}</span>
+                                            <span className="font-black text-[#333333] dark:text-white">{user.coins || 0}</span>
                                         </div>
                                     </td>
                                     <td>
-                                        <select 
+                                        <select
                                             value={user.role}
                                             onChange={(e) => handleRoleUpdate(user._id, e.target.value)}
-                                            className="px-4 py-2 bg-[#f9f9f9] border border-gray-100 rounded-lg text-xs font-bold text-[#333333] focus:outline-none focus:border-[#2bb673] shadow-sm appearance-none cursor-pointer"
+                                            className="px-4 py-2 bg-[#f9f9f9] dark:bg-gray-700 border border-gray-100 dark:border-gray-600 rounded-lg text-xs font-bold text-[#333333] dark:text-white focus:outline-none focus:border-[#2bb673] shadow-sm appearance-none cursor-pointer"
                                         >
                                             <option value="worker">Worker</option>
                                             <option value="buyer">Buyer</option>
@@ -111,7 +110,7 @@ const ManageUsers = () => {
                                         </select>
                                     </td>
                                     <td className="text-center px-8">
-                                        <button 
+                                        <button
                                             onClick={() => handleDelete(user._id)}
                                             className="w-10 h-10 flex items-center justify-center rounded-xl bg-red-50 text-red-500 hover:bg-red-500 hover:text-white transition-all shadow-sm"
                                         >
