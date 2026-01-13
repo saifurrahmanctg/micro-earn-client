@@ -54,10 +54,10 @@ const AddTask = () => {
 
     return (
         <div className="max-w-4xl mx-auto fade-in">
-            <div className="bg-white p-8 md:p-12 rounded-xl shadow-premium border border-gray-100">
+            <div className="bg-white dark:bg-gray-800 p-8 md:p-12 rounded-xl shadow-premium border border-gray-100 dark:border-gray-700 transition-colors duration-300">
                 <div className="mb-10">
-                    <h2 className="text-3xl font-bold text-[#333333] mb-2">Create New <span className="text-[#2bb673]">Task</span></h2>
-                    <p className="text-gray-500 font-medium">Post a job to our community of skilled workers</p>
+                    <h2 className="text-3xl font-bold text-[#333333] dark:text-white mb-2">Create New <span className="text-[#2bb673]">Task</span></h2>
+                    <p className="text-gray-500 dark:text-gray-400 font-medium">Post a job to our community of skilled workers</p>
                 </div>
 
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
@@ -65,9 +65,9 @@ const AddTask = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         <div>
                             <label className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3 block">Task Title</label>
-                            <input 
+                            <input
                                 {...register("task_title", { required: true })}
-                                className="w-full px-5 py-4 bg-[#f9f9f9] border border-gray-100 rounded-lg focus:outline-none focus:border-[#2bb673] font-medium text-gray-800 transition-all shadow-sm"
+                                className="w-full px-5 py-4 bg-[#f9f9f9] dark:bg-gray-700 border border-gray-100 dark:border-gray-600 rounded-lg focus:outline-none focus:border-[#2bb673] font-medium text-gray-800 dark:text-white transition-all shadow-sm"
                                 placeholder="e.g. Subscribe to YouTube Channel"
                             />
                         </div>
@@ -75,10 +75,10 @@ const AddTask = () => {
                             <label className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3 block">Completion Date</label>
                             <div className="relative">
                                 <FaCalendarAlt className="absolute left-5 top-1/2 -translate-y-1/2 text-[#2bb673]" />
-                                <input 
+                                <input
                                     type="date"
                                     {...register("completion_date", { required: true })}
-                                    className="w-full pl-12 pr-5 py-4 bg-[#f9f9f9] border border-gray-100 rounded-lg focus:outline-none focus:border-[#2bb673] font-medium text-gray-800 transition-all shadow-sm"
+                                    className="w-full pl-12 pr-5 py-4 bg-[#f9f9f9] dark:bg-gray-700 border border-gray-100 dark:border-gray-600 rounded-lg focus:outline-none focus:border-[#2bb673] font-medium text-gray-800 dark:text-white transition-all shadow-sm"
                                 />
                             </div>
                         </div>
@@ -87,10 +87,10 @@ const AddTask = () => {
                     {/* Task Details */}
                     <div>
                         <label className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3 block">Task Requirements / Details</label>
-                        <textarea 
+                        <textarea
                             {...register("task_detail", { required: true })}
                             rows="4"
-                            className="w-full px-5 py-4 bg-[#f9f9f9] border border-gray-100 rounded-lg focus:outline-none focus:border-[#2bb673] font-medium text-gray-800 transition-all shadow-sm resize-none"
+                            className="w-full px-5 py-4 bg-[#f9f9f9] dark:bg-gray-700 border border-gray-100 dark:border-gray-600 rounded-lg focus:outline-none focus:border-[#2bb673] font-medium text-gray-800 dark:text-white transition-all shadow-sm resize-none"
                             placeholder="Describe step by step what workers need to do..."
                         ></textarea>
                     </div>
@@ -98,9 +98,9 @@ const AddTask = () => {
                     {/* Submission Info */}
                     <div>
                         <label className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3 block">What to Submit as Proof</label>
-                        <input 
+                        <input
                             {...register("submission_info", { required: true })}
-                            className="w-full px-5 py-4 bg-[#f9f9f9] border border-gray-100 rounded-lg focus:outline-none focus:border-[#2bb673] font-medium text-gray-800 transition-all shadow-sm"
+                            className="w-full px-5 py-4 bg-[#f9f9f9] dark:bg-gray-700 border border-gray-100 dark:border-gray-600 rounded-lg focus:outline-none focus:border-[#2bb673] font-medium text-gray-800 dark:text-white transition-all shadow-sm"
                             placeholder="e.g. Screenshot of liked video and subscribe button"
                         />
                     </div>
@@ -111,10 +111,10 @@ const AddTask = () => {
                             <label className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3 block">Workers Needed</label>
                             <div className="relative">
                                 <FaUsers className="absolute left-5 top-1/2 -translate-y-1/2 text-[#2bb673]" />
-                                <input 
+                                <input
                                     type="number"
                                     {...register("required_workers", { required: true, min: 1 })}
-                                    className="w-full pl-12 pr-5 py-4 bg-[#f9f9f9] border border-gray-100 rounded-lg focus:outline-none focus:border-[#2bb673] font-black text-gray-800 transition-all shadow-sm"
+                                    className="w-full pl-12 pr-5 py-4 bg-[#f9f9f9] dark:bg-gray-700 border border-gray-100 dark:border-gray-600 rounded-lg focus:outline-none focus:border-[#2bb673] font-black text-gray-800 dark:text-white transition-all shadow-sm"
                                     placeholder="0"
                                 />
                             </div>
@@ -123,11 +123,11 @@ const AddTask = () => {
                             <label className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3 block">Amount Per Worker</label>
                             <div className="relative">
                                 <FaDollarSign className="absolute left-5 top-1/2 -translate-y-1/2 text-[#2bb673]" />
-                                <input 
+                                <input
                                     type="number"
                                     step="0.01"
                                     {...register("payable_amount", { required: true, min: 0.1 })}
-                                    className="w-full pl-12 pr-5 py-4 bg-[#f9f9f9] border border-gray-100 rounded-lg focus:outline-none focus:border-[#2bb673] font-black text-gray-800 transition-all shadow-sm"
+                                    className="w-full pl-12 pr-5 py-4 bg-[#f9f9f9] dark:bg-gray-700 border border-gray-100 dark:border-gray-600 rounded-lg focus:outline-none focus:border-[#2bb673] font-black text-gray-800 dark:text-white transition-all shadow-sm"
                                     placeholder="0.00"
                                 />
                             </div>
@@ -135,12 +135,12 @@ const AddTask = () => {
                         <div>
                             <label className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3 block">Task Image</label>
                             <div className="relative group cursor-pointer">
-                                <input 
+                                <input
                                     type="file"
                                     {...register("task_image_url", { required: true })}
                                     className="opacity-0 absolute inset-0 w-full h-full z-10 cursor-pointer"
                                 />
-                                <div className="w-full h-[58px] bg-[#f9f9f9] border border-dashed border-gray-200 group-hover:border-[#2bb673] group-hover:bg-green-50 rounded-lg flex items-center justify-center gap-2 transition-all">
+                                <div className="w-full h-[58px] bg-[#f9f9f9] dark:bg-gray-700 border border-dashed border-gray-200 dark:border-gray-600 group-hover:border-[#2bb673] group-hover:bg-green-50 dark:group-hover:bg-green-900/30 rounded-lg flex items-center justify-center gap-2 transition-all">
                                     <FaCloudUploadAlt className="text-[#2bb673] text-xl" />
                                     <span className="text-xs font-bold text-gray-400 group-hover:text-[#2bb673]">Upload Image</span>
                                 </div>
