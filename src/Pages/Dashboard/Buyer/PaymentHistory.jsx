@@ -21,20 +21,20 @@ const PaymentHistory = () => {
         <div className="fade-in">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-10">
                 <div>
-                    <h2 className="text-3xl font-bold text-[#333333]">Payment <span className="text-[#2bb673]">History</span></h2>
-                    <p className="text-gray-500 font-medium">Review your recent coin purchases and transactions</p>
+                    <h2 className="text-3xl font-bold text-[#333333] dark:text-white">Payment <span className="text-[#2bb673]">History</span></h2>
+                    <p className="text-gray-500 dark:text-gray-400 font-medium">Review your recent coin purchases and transactions</p>
                 </div>
-                <div className="bg-white px-6 py-3 rounded-xl border border-gray-100 flex items-center gap-3">
+                <div className="bg-white dark:bg-gray-800 px-6 py-3 rounded-xl border border-gray-100 dark:border-gray-700 flex items-center gap-3 transition-colors">
                     <span className="text-[10px] text-gray-400 font-black uppercase tracking-widest">Total Transactions</span>
                     <span className="text-xl font-black text-[#2bb673]">{payments.length}</span>
                 </div>
             </div>
 
-            <div className="bg-white rounded-2xl border border-gray-100 shadow-premium overflow-hidden">
+            <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-premium overflow-hidden transition-colors duration-300">
                 <div className="overflow-x-auto">
                     <table className="table w-full border-collapse">
                         <thead>
-                            <tr className="bg-[#f9f9f9] text-gray-400 uppercase text-[10px] tracking-widest font-black border-b border-gray-100">
+                            <tr className="bg-[#f9f9f9] dark:bg-gray-700 text-gray-400 uppercase text-[10px] tracking-widest font-black border-b border-gray-100 dark:border-gray-600">
                                 <th className="py-6 px-8 text-left">Transaction ID</th>
                                 <th>Amount Paid</th>
                                 <th>Coins Added</th>
@@ -42,24 +42,24 @@ const PaymentHistory = () => {
                                 <th className="text-right px-8">Date</th>
                             </tr>
                         </thead>
-                        <tbody className="divide-y divide-gray-50">
+                        <tbody className="divide-y divide-gray-50 dark:divide-gray-700">
                             {payments.map((payment) => (
-                                <tr key={payment._id} className="hover:bg-green-50/20 transition-colors">
+                                <tr key={payment._id} className="hover:bg-green-50/20 dark:hover:bg-green-900/10 transition-colors">
                                     <td className="py-6 px-8">
                                         <div className="flex items-center gap-3">
-                                            <div className="w-8 h-8 rounded-lg bg-gray-50 flex items-center justify-center text-gray-400 text-xs">
+                                            <div className="w-8 h-8 rounded-lg bg-gray-50 dark:bg-gray-700 flex items-center justify-center text-gray-400 text-xs">
                                                 <FaExchangeAlt />
                                             </div>
-                                            <span className="font-mono text-xs font-bold text-[#333333] tracking-tighter">{payment.transaction_id}</span>
+                                            <span className="font-mono text-xs font-bold text-[#333333] dark:text-gray-300 tracking-tighter">{payment.transaction_id}</span>
                                         </div>
                                     </td>
                                     <td>
-                                        <div className="text-lg font-black text-[#333333]">${payment.price}</div>
+                                        <div className="text-lg font-black text-[#333333] dark:text-white">${payment.price}</div>
                                     </td>
                                     <td>
                                         <div className="flex items-center gap-2">
                                             <div className="w-2 h-2 rounded-full bg-[#2bb673]"></div>
-                                            <span className="font-black text-[#333333]">{payment.coins_purchased} <span className="text-[10px] text-gray-400 font-bold uppercase">Coins</span></span>
+                                            <span className="font-black text-[#333333] dark:text-white">{payment.coins_purchased} <span className="text-[10px] text-gray-400 font-bold uppercase">Coins</span></span>
                                         </div>
                                     </td>
                                     <td>
