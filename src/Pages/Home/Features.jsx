@@ -20,16 +20,16 @@ const Features = () => {
     ];
 
     return (
-        <section className="py-24 px-4 md:px-12 bg-white flex flex-col items-center">
+        <section className="py-24 px-4 md:px-12 bg-white dark:bg-gray-900 flex flex-col items-center">
             <div className="max-w-7xl mx-auto w-full">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
                     {steps.map((step, index) => (
                         <div key={index} className="flex flex-col items-center text-center group">
-                            <div className="w-20 h-20 bg-[#f9f9f9] group-hover:bg-[#2bb673] group-hover:text-white transition-all duration-300 rounded-full flex items-center justify-center text-3xl text-[#2bb673] mb-8 shadow-sm">
+                            <div className="w-20 h-20 bg-[#f9f9f9] dark:bg-gray-800 group-hover:bg-[#2bb673] group-hover:text-white transition-all duration-300 rounded-full flex items-center justify-center text-3xl text-[#2bb673] mb-8 shadow-sm">
                                 {step.icon}
                             </div>
-                            <h3 className="text-2xl font-bold text-[#333333] mb-4">{step.title}</h3>
-                            <p className="text-gray-500 leading-relaxed max-w-xs">{step.desc}</p>
+                            <h3 className="text-2xl font-bold text-[#333333] dark:text-white mb-4">{step.title}</h3>
+                            <p className="text-gray-500 dark:text-gray-400 leading-relaxed max-w-xs">{step.desc}</p>
                             {index !== steps.length - 1 && (
                                 <div className="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 transform translate-x-12">
                                     {/* Arrow could go here */}

@@ -45,11 +45,11 @@ const Testimonials = () => {
     ];
 
     return (
-        <section className="py-24 px-4 md:px-12 bg-white">
+        <section className="py-24 px-4 md:px-12 bg-white dark:bg-gray-900">
             <div className="max-w-7xl mx-auto flex flex-col items-center">
                 <div className="text-center mb-16">
                     <span className="text-[#2bb673] font-bold uppercase tracking-widest text-sm mb-4 block">Success Stories</span>
-                    <h2 className="text-4xl md:text-5xl font-bold text-[#333333]">What Our <span className="text-[#2bb673]">Users Say</span></h2>
+                    <h2 className="text-4xl md:text-5xl font-bold text-[#333333] dark:text-white">What Our <span className="text-[#2bb673]">Users Say</span></h2>
                 </div>
 
                 <div className="w-full">
@@ -68,9 +68,9 @@ const Testimonials = () => {
                     >
                         {reviews.map((review, index) => (
                             <SwiperSlide key={index}>
-                                <div className="bg-[#f9f9f9] p-10 rounded-[12px] border border-gray-100 flex flex-col h-full relative group hover:bg-white hover:shadow-xl transition-all duration-300">
+                                <div className="bg-[#f9f9f9] dark:bg-gray-800 p-10 rounded-[12px] border border-gray-100 dark:border-gray-700 flex flex-col h-full relative group hover:bg-white dark:hover:bg-gray-700 hover:shadow-xl transition-all duration-300">
                                     <FaQuoteLeft className="text-[#2bb673] text-4xl mb-6 opacity-20" />
-                                    <p className="text-gray-600 italic mb-8 leading-relaxed flex-grow">
+                                    <p className="text-gray-600 dark:text-gray-300 italic mb-8 leading-relaxed flex-grow">
                                         "{review.quote}"
                                     </p>
                                     <div className="flex items-center gap-4">
@@ -78,7 +78,7 @@ const Testimonials = () => {
                                             <img src={review.image} alt={review.name} className="w-full h-full object-cover" />
                                         </div>
                                         <div>
-                                            <h4 className="font-bold text-[#333333]">{review.name}</h4>
+                                            <h4 className="font-bold text-[#333333] dark:text-white">{review.name}</h4>
                                             <p className="text-[#2bb673] text-sm">{review.role}</p>
                                         </div>
                                     </div>

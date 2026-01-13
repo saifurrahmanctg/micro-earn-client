@@ -54,9 +54,9 @@ const Hero = () => {
             >
                 {slides.map((slide, index) => (
                     <SwiperSlide key={index}>
-                        <div 
+                        <div
                             className="h-full w-full flex items-center justify-center relative px-4"
-                            style={{ 
+                            style={{
                                 background: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(${slide.image})`,
                                 backgroundSize: 'cover',
                                 backgroundPosition: 'center'
@@ -69,7 +69,7 @@ const Hero = () => {
                                 <p className="text-lg md:text-2xl mb-10 text-gray-200 font-light max-w-2xl mx-auto">
                                     {slide.subtitle}
                                 </p>
-                                
+
                                 <div className="flex flex-col md:flex-row gap-4 justify-center items-center">
                                     <Link to="/register" className="btn-primary flex items-center gap-2 group">
                                         Get Started Now <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
@@ -86,18 +86,18 @@ const Hero = () => {
 
             {/* Search Overlay inspired by WorkScout */}
             <div className="absolute bottom-0 left-0 right-0 transform translate-y-1/2 z-10 px-4 hidden md:block">
-                <div className="max-w-5xl mx-auto bg-white p-2 rounded-[8px] shadow-2xl flex items-center gap-4">
-                    <div className="flex-1 flex items-center gap-3 px-4 py-3 border-r border-gray-100">
+                <div className="max-w-5xl mx-auto bg-white dark:bg-gray-800 p-2 rounded-[8px] shadow-2xl flex items-center gap-4">
+                    <div className="flex-1 flex items-center gap-3 px-4 py-3 border-r border-gray-100 dark:border-gray-700">
                         <FaSearch className="text-[#2bb673]" />
-                        <input type="text" placeholder="Task keywords..." className="w-full focus:outline-none text-gray-700 font-medium" />
+                        <input type="text" placeholder="Task keywords..." className="w-full focus:outline-none text-gray-700 dark:text-gray-200 bg-transparent font-medium placeholder-gray-400" />
                     </div>
-                    <div className="flex-1 flex items-center gap-3 px-4 py-3 border-r border-gray-100">
+                    <div className="flex-1 flex items-center gap-3 px-4 py-3 border-r border-gray-100 dark:border-gray-700">
                         <FaBriefcase className="text-[#2bb673]" />
-                        <select className="w-full focus:outline-none text-gray-700 bg-transparent font-medium">
-                            <option>All Categories</option>
-                            <option>YouTube</option>
-                            <option>Social Media</option>
-                            <option>App Review</option>
+                        <select className="w-full focus:outline-none text-gray-700 dark:text-gray-200 bg-transparent font-medium">
+                            <option className="text-gray-800">All Categories</option>
+                            <option className="text-gray-800">YouTube</option>
+                            <option className="text-gray-800">Social Media</option>
+                            <option className="text-gray-800">App Review</option>
                         </select>
                     </div>
                     <button className="btn-primary min-h-0 h-[56px] px-10">Search</button>

@@ -3,14 +3,14 @@ import { FaArrowRight } from "react-icons/fa";
 
 const Counter = () => {
     return (
-        <section className="py-24 px-4 md:px-12 bg-white flex flex-col items-center">
+        <section className="py-24 px-4 md:px-12 bg-white dark:bg-gray-900 flex flex-col items-center">
             <div className="max-w-5xl mx-auto bg-[#333333] rounded-[24px] overflow-hidden shadow-2xl relative w-full">
                 {/* Decorative circle */}
                 <div className="absolute -top-24 -right-24 w-64 h-64 bg-[#2bb673] opacity-20 rounded-full blur-3xl"></div>
-                
+
                 <div className="px-8 md:px-20 py-16 flex flex-col items-center text-center relative z-10">
                     <h2 className="text-3xl md:text-5xl font-bold text-white mb-8 leading-tight">
-                        Ready to Start Your Journey <br/> with <span className="text-[#2bb673]">MicroEarn?</span>
+                        Ready to Start Your Journey <br /> with <span className="text-[#2bb673]">MicroEarn?</span>
                     </h2>
                     <p className="text-gray-400 text-lg mb-12 max-w-2xl">
                         Join thousands of users who are already earning and getting things done. Sign up today and get your starting coins!
