@@ -96,16 +96,16 @@ const Withdraw = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
                 {/* Conversion Info */}
                 <div className="space-y-6">
-                    <div className="bg-white p-8 rounded-2xl border border-gray-100 shadow-premium">
-                        <h3 className="text-lg font-bold text-[#333333] mb-6 flex items-center gap-2">
+                    <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-premium transition-colors duration-300">
+                        <h3 className="text-lg font-bold text-[#333333] dark:text-white mb-6 flex items-center gap-2">
                             <FaWallet className="text-[#2bb673]" /> Withdrawal Info
                         </h3>
                         <div className="space-y-6">
-                            <div className="flex justify-between items-center p-4 bg-[#f9f9f9] rounded-xl border border-gray-100">
+                            <div className="flex justify-between items-center p-4 bg-[#f9f9f9] dark:bg-gray-700 rounded-xl border border-gray-100 dark:border-gray-600 transition-colors">
                                 <span className="text-sm font-bold text-gray-400 uppercase tracking-widest">Rate</span>
-                                <span className="text-lg font-black text-[#333333]">20 Coins = $1</span>
+                                <span className="text-lg font-black text-[#333333] dark:text-white">20 Coins = $1</span>
                             </div>
-                            <div className="flex justify-between items-center p-4 bg-green-50 rounded-xl border border-green-100">
+                            <div className="flex justify-between items-center p-4 bg-green-50 dark:bg-green-900/30 rounded-xl border border-green-100 dark:border-green-800 transition-colors">
                                 <span className="text-sm font-bold text-[#2bb673] uppercase tracking-widest">Min Withdraw</span>
                                 <span className="text-lg font-black text-[#2bb673]">200 Coins ($10)</span>
                             </div>
@@ -124,8 +124,8 @@ const Withdraw = () => {
                 </div>
 
                 {/* Form */}
-                <div className="bg-white p-8 rounded-2xl border border-gray-100 shadow-premium">
-                    <h3 className="text-lg font-bold text-[#333333] mb-8 uppercase tracking-widest border-b border-gray-50 pb-4">Withdrawal Form</h3>
+                <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-premium transition-colors duration-300">
+                    <h3 className="text-lg font-bold text-[#333333] dark:text-white mb-8 uppercase tracking-widest border-b border-gray-50 dark:border-gray-700 pb-4">Withdrawal Form</h3>
                     <form onSubmit={handleWithdraw} className="space-y-6">
                         <div>
                             <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-3 block">Coins to Withdraw</label>
@@ -136,7 +136,7 @@ const Withdraw = () => {
                                 required
                                 value={coinsToWithdraw}
                                 onChange={(e) => setCoinsToWithdraw(e.target.value)}
-                                className="w-full px-5 py-4 bg-[#f9f9f9] border border-gray-100 rounded-xl focus:outline-none focus:border-[#2bb673] font-black text-gray-800 transition-all text-xl"
+                                className="w-full px-5 py-4 bg-[#f9f9f9] dark:bg-gray-700 border border-gray-100 dark:border-gray-600 rounded-xl focus:outline-none focus:border-[#2bb673] font-black text-gray-800 dark:text-white transition-all text-xl"
                                 placeholder="0"
                             />
                         </div>
@@ -147,7 +147,7 @@ const Withdraw = () => {
                                 <div className="relative">
                                     <select
                                         name="payment_system"
-                                        className="w-full px-5 py-4 bg-[#f9f9f9] border border-gray-100 rounded-xl focus:outline-none focus:border-[#2bb673] font-bold text-gray-800 transition-all appearance-none cursor-pointer"
+                                        className="w-full px-5 py-4 bg-[#f9f9f9] dark:bg-gray-700 border border-gray-100 dark:border-gray-600 rounded-xl focus:outline-none focus:border-[#2bb673] font-bold text-gray-800 dark:text-white transition-all appearance-none cursor-pointer"
                                         required
                                     >
                                         <option value="Stripe">Stripe</option>
@@ -167,7 +167,7 @@ const Withdraw = () => {
                                     name="account_number"
                                     type="text"
                                     required
-                                    className="w-full px-5 py-4 bg-[#f9f9f9] border border-gray-100 rounded-xl focus:outline-none focus:border-[#2bb673] font-bold text-gray-800 transition-all"
+                                    className="w-full px-5 py-4 bg-[#f9f9f9] dark:bg-gray-700 border border-gray-100 dark:border-gray-600 rounded-xl focus:outline-none focus:border-[#2bb673] font-bold text-gray-800 dark:text-white transition-all"
                                     placeholder="Enter details..."
                                 />
                             </div>
