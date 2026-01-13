@@ -94,10 +94,10 @@ const Hero = () => {
                     <div className="flex-1 flex items-center gap-3 px-4 py-3 border-r border-gray-100 dark:border-gray-700">
                         <FaBriefcase className="text-[#2bb673]" />
                         <select className="w-full focus:outline-none text-gray-700 dark:text-gray-200 bg-transparent font-medium">
-                            <option className="text-gray-800">All Categories</option>
-                            <option className="text-gray-800">YouTube</option>
-                            <option className="text-gray-800">Social Media</option>
-                            <option className="text-gray-800">App Review</option>
+                            <option className="text-gray-800 dark:bg-gray-800 dark:text-gray-200">All Categories</option>
+                            <option className="text-gray-800 dark:bg-gray-800 dark:text-gray-200">YouTube</option>
+                            <option className="text-gray-800 dark:bg-gray-800 dark:text-gray-200">Social Media</option>
+                            <option className="text-gray-800 dark:bg-gray-800 dark:text-gray-200">App Review</option>
                         </select>
                     </div>
                     <button className="btn-primary min-h-0 h-[56px] px-10">Search</button>
