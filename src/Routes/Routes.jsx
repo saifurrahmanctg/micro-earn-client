@@ -24,87 +24,103 @@ import PaymentHistory from "../Pages/Dashboard/Buyer/PaymentHistory";
 // Admin Components
 import ManageUsers from "../Pages/Dashboard/Admin/ManageUsers";
 import ManageTasks from "../Pages/Dashboard/Admin/ManageTasks";
+import ManageReports from "../Pages/Dashboard/Admin/ManageReports";
+
+import Profile from "../Pages/Dashboard/Profile";
+import Settings from "../Pages/Dashboard/Settings";
 
 export const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <MainLayout />,
-    children: [
-      {
+    {
         path: "/",
-        element: <Home />,
-      },
-      {
-        path: "login",
-        element: <Login />,
-      },
-      {
-        path: "register",
-        element: <Register />,
-      },
-    ],
-  },
-  {
-    path: "dashboard",
-    element: <PrivateRoute><DashboardLayout /></PrivateRoute>,
-    children: [
-        {
-            path: "",
-            element: <DashboardHome />
-        },
-        // Worker Routes
-        {
-            path: "worker-tasks",
-            element: <WorkerTasks />
-        },
-        {
-            path: "task-details/:id",
-            element: <TaskDetails />
-        },
-        {
-            path: "my-submissions",
-            element: <MySubmissions />
-        },
-        {
-            path: "withdraw",
-            element: <Withdraw />
-        },
-        // Buyer Routes
-        {
-            path: "add-task",
-            element: <AddTask />
-        },
-        {
-            path: "my-tasks",
-            element: <MyTasks />
-        },
-        {
-            path: "update-task/:id",
-            element: <UpdateTask />
-        },
-        {
-            path: "purchase-coins",
-            element: <PurchaseCoins />
-        },
-        {
-            path: "payment",
-            element: <Payment />
-        },
-        {
-            path: "payment-history",
-            element: <PaymentHistory />
-        },
-        // Admin Routes
-        {
-            path: "manage-users",
-            element: <ManageUsers />
-        },
-        {
-            path: "manage-tasks",
-            element: <ManageTasks />
-        }
-    ]
-  }
+        element: <MainLayout />,
+        children: [
+            {
+                path: "/",
+                element: <Home />,
+            },
+            {
+                path: "login",
+                element: <Login />,
+            },
+            {
+                path: "register",
+                element: <Register />,
+            },
+        ],
+    },
+    {
+        path: "dashboard",
+        element: <PrivateRoute><DashboardLayout /></PrivateRoute>,
+        children: [
+            {
+                path: "",
+                element: <DashboardHome />
+            },
+            {
+                path: "profile",
+                element: <Profile />
+            },
+            {
+                path: "settings",
+                element: <Settings />
+            },
+            // Worker Routes
+            {
+                path: "worker-tasks",
+                element: <WorkerTasks />
+            },
+            {
+                path: "task-details/:id",
+                element: <TaskDetails />
+            },
+            {
+                path: "my-submissions",
+                element: <MySubmissions />
+            },
+            {
+                path: "withdraw",
+                element: <Withdraw />
+            },
+            // Buyer Routes
+            {
+                path: "add-task",
+                element: <AddTask />
+            },
+            {
+                path: "my-tasks",
+                element: <MyTasks />
+            },
+            {
+                path: "update-task/:id",
+                element: <UpdateTask />
+            },
+            {
+                path: "purchase-coins",
+                element: <PurchaseCoins />
+            },
+            {
+                path: "payment",
+                element: <Payment />
+            },
+            {
+                path: "payment-history",
+                element: <PaymentHistory />
+            },
+            // Admin Routes
+            {
+                path: "manage-users",
+                element: <ManageUsers />
+            },
+            {
+                path: "manage-tasks",
+                element: <ManageTasks />
+            },
+            {
+                path: "manage-reports",
+                element: <ManageReports />
+            }
+        ]
+    }
 ], {
     future: {
         v7_startTransition: true,
