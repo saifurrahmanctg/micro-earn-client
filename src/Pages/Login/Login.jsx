@@ -81,23 +81,23 @@ const Login = () => {
     }
 
     return (
-        <div className="min-h-[90vh] flex items-center justify-center bg-[#f9f9f9] px-4 py-20">
-            <div className="max-w-md w-full bg-white p-10 rounded-[12px] shadow-premium border border-gray-100">
+        <div className="min-h-[90vh] flex items-center justify-center bg-[#f9f9f9] dark:bg-black/40 px-4 py-20 transition-colors duration-300">
+            <div className="max-w-md w-full bg-white dark:bg-gray-800 p-10 rounded-[12px] shadow-premium border border-gray-100 dark:border-gray-700 transition-colors duration-300">
                 <div className="text-center mb-10">
-                    <h2 className="text-4xl font-bold text-[#333333] mb-3 leading-tight">Welcome Back</h2>
-                    <p className="text-gray-500 font-medium">Log in to your MicroEarn account</p>
+                    <h2 className="text-4xl font-bold text-[#333333] dark:text-white mb-3 leading-tight">Welcome Back</h2>
+                    <p className="text-gray-500 dark:text-gray-400 font-medium">Log in to your MicroEarn account</p>
                 </div>
 
                 <form onSubmit={handleLogin} className="space-y-6">
                     <div>
-                        <label className="text-sm font-bold text-gray-700 block mb-2 uppercase tracking-tight">Email Address</label>
+                        <label className="text-sm font-bold text-gray-700 dark:text-gray-300 block mb-2 uppercase tracking-tight">Email Address</label>
                         <div className="relative group">
                             <FaEnvelope className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-[#2bb673] transition-colors" />
                             <input
                                 type="email"
                                 name="email"
                                 required
-                                className="w-full pl-12 pr-4 py-4 bg-[#f9f9f9] border border-gray-100 rounded-[8px] focus:outline-none focus:border-[#2bb673] transition-all font-medium text-gray-800"
+                                className="w-full pl-12 pr-4 py-4 bg-[#f9f9f9] dark:bg-gray-700 border border-gray-100 dark:border-gray-600 rounded-[8px] focus:outline-none focus:border-[#2bb673] transition-all font-medium text-gray-800 dark:text-white"
                                 placeholder="name@example.com"
                             />
                         </div>
@@ -105,7 +105,7 @@ const Login = () => {
 
                     <div>
                         <div className="flex justify-between items-center mb-2">
-                            <label className="text-sm font-bold text-gray-700 block uppercase tracking-tight">Password</label>
+                            <label className="text-sm font-bold text-gray-700 dark:text-gray-300 block uppercase tracking-tight">Password</label>
                             <button onClick={handleForgotPassword} className="text-xs font-bold text-[#2bb673] hover:underline">Forgot?</button>
                         </div>
                         <div className="relative group">
@@ -114,7 +114,7 @@ const Login = () => {
                                 type="password"
                                 name="password"
                                 required
-                                className="w-full pl-12 pr-4 py-4 bg-[#f9f9f9] border border-gray-100 rounded-[8px] focus:outline-none focus:border-[#2bb673] transition-all font-medium text-gray-800"
+                                className="w-full pl-12 pr-4 py-4 bg-[#f9f9f9] dark:bg-gray-700 border border-gray-100 dark:border-gray-600 rounded-[8px] focus:outline-none focus:border-[#2bb673] transition-all font-medium text-gray-800 dark:text-white"
                                 placeholder="••••••••"
                             />
                         </div>
@@ -129,7 +129,7 @@ const Login = () => {
                     <button
                         type="button"
                         onClick={handleGoogleLogin}
-                        className="w-full h-14 bg-white border border-gray-100 rounded-[8px] flex items-center justify-center gap-3 hover:bg-gray-50 transition-all font-bold text-[#333333]"
+                        className="w-full h-14 bg-white dark:bg-gray-700 border border-gray-100 dark:border-gray-600 rounded-[8px] flex items-center justify-center gap-3 hover:bg-gray-50 dark:hover:bg-gray-600 transition-all font-bold text-[#333333] dark:text-white"
                     >
                         <FaGoogle className="text-red-500" /> Google
                     </button>
