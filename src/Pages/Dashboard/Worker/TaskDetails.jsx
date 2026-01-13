@@ -21,6 +21,15 @@ const TaskDetails = () => {
         }
     });
 
+    const { data: submissionCheck = { submitted: false } } = useQuery({
+        queryKey: ['submission-check', id, user?.email],
+        enabled: !!user?.email && !!id,
+        queryFn: async () => {
+            const res = await axiosSecure.get(`/submissions/check/${id}/${user.email}`);
+            return res.data;
+        }
+    });
+
     const onSubmit = async (data) => {
         const submissionData = {
             task_id: task._id,
@@ -45,6 +54,12 @@ const TaskDetails = () => {
                 timer: 1500
             });
             navigate('/dashboard/my-submissions');
+        } else {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: res.data.message
+            });
         }
     };
 
@@ -55,7 +70,7 @@ const TaskDetails = () => {
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 {/* Left Column: Task Info */}
                 <div className="lg:col-span-2 space-y-8">
-                    <div className="bg-white rounded-xl shadow-premium border border-gray-100 overflow-hidden">
+                    <div className="bg-white dark:bg-gray-800 rounded-xl shadow-premium border border-gray-100 dark:border-gray-700 overflow-hidden transition-colors duration-300">
                         <div className="h-64 overflow-hidden relative">
                             <img src={task.task_image_url} alt={task.task_title} className="w-full h-full object-cover" />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
@@ -67,13 +82,13 @@ const TaskDetails = () => {
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div className="p-8">
                             <div className="mb-8">
                                 <h3 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4 flex items-center gap-2">
                                     <FaInfoCircle className="text-[#2bb673]" /> Task Description
                                 </h3>
-                                <p className="text-gray-600 leading-relaxed font-medium bg-[#f9f9f9] p-6 rounded-lg border border-gray-100">
+                                <p className="text-gray-600 dark:text-gray-300 leading-relaxed font-medium bg-[#f9f9f9] dark:bg-gray-700 p-6 rounded-lg border border-gray-100 dark:border-gray-600 transition-colors">
                                     {task.task_detail}
                                 </p>
                             </div>
@@ -82,7 +97,7 @@ const TaskDetails = () => {
                                 <h3 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4 flex items-center gap-2">
                                     <FaCheckCircle className="text-[#2bb673]" /> Proof Requirements
                                 </h3>
-                                <p className="text-gray-600 font-bold bg-green-50 p-6 rounded-lg border border-green-100">
+                                <p className="text-gray-600 dark:text-gray-300 font-bold bg-green-50 dark:bg-green-900/30 p-6 rounded-lg border border-green-100 dark:border-green-800 transition-colors">
                                     {task.submission_info}
                                 </p>
                             </div>
@@ -90,28 +105,36 @@ const TaskDetails = () => {
                     </div>
 
                     {/* Submission Form */}
-                    <div className="bg-white p-8 rounded-xl shadow-premium border border-gray-100">
-                        <h2 className="text-2xl font-bold text-[#333333] mb-6">Submit Your Work</h2>
-                        <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-                            <div>
-                                <label className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3 block">Work Details / Proof Text</label>
-                                <textarea 
-                                    {...register("submission_details", { required: true })}
-                                    rows="5"
-                                    className="w-full px-5 py-4 bg-[#f9f9f9] border border-gray-100 rounded-lg focus:outline-none focus:border-[#2bb673] font-medium text-gray-800 transition-all shadow-sm resize-none"
-                                    placeholder="Enter proof details, URLs, or descriptions here..."
-                                ></textarea>
+                    <div className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-premium border border-gray-100 dark:border-gray-700 transition-colors duration-300">
+                        <h2 className="text-2xl font-bold text-[#333333] dark:text-white mb-6">Submit Your Work</h2>
+
+                        {submissionCheck.submitted ? (
+                            <div className="bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400 p-6 rounded-xl border border-green-100 dark:border-green-800 flex items-center justify-center gap-2 font-bold text-lg transition-colors">
+                                <FaCheckCircle className="text-2xl" />
+                                You have already submitted this task.
                             </div>
-                            <button type="submit" className="btn-primary w-full h-14 text-lg font-bold">
-                                Submit Task for Review
-                            </button>
-                        </form>
+                        ) : (
+                            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+                                <div>
+                                    <label className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3 block">Work Details / Proof Text</label>
+                                    <textarea
+                                        {...register("submission_details", { required: true })}
+                                        rows="5"
+                                        className="w-full px-5 py-4 bg-[#f9f9f9] dark:bg-gray-700 border border-gray-100 dark:border-gray-600 rounded-lg focus:outline-none focus:border-[#2bb673] font-medium text-gray-800 dark:text-gray-200 transition-all shadow-sm resize-none"
+                                        placeholder="Enter proof details, URLs, or descriptions here..."
+                                    ></textarea>
+                                </div>
+                                <button type="submit" className="btn-primary w-full h-14 text-lg font-bold">
+                                    Submit Task for Review
+                                </button>
+                            </form>
+                        )}
                     </div>
                 </div>
 
                 {/* Right Column: Sidebar Stats */}
                 <div className="space-y-6">
-                    <div className="bg-white p-8 rounded-xl shadow-premium border border-gray-100 text-center">
+                    <div className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-premium border border-gray-100 dark:border-gray-700 text-center transition-colors duration-300">
                         <span className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4 block">You Will Earn</span>
                         <div className="flex items-center justify-center gap-2 text-[#2bb673] mb-2">
                             <FaDollarSign className="text-3xl" />
