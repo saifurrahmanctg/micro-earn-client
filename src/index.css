@@ -21,8 +21,12 @@ body {
   }
   
   .card-premium {
-    @apply bg-white border border-gray-100 shadow-sm hover:shadow-premium transition-all duration-300 rounded-[6px] p-6;
+    @apply bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-premium transition-all duration-300 rounded-[6px] p-6;
   }
+}
+
+html.dark body {
+  @apply bg-gray-900 text-gray-100;
 }
 
 .hero-gradient {
@@ -47,7 +51,7 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-[#0f172a];
+  @apply bg-gray-100 dark:bg-[#0f172a];
 }
 
 ::-webkit-scrollbar-thumb {
