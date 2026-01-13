@@ -39,15 +39,15 @@ const ManageTasks = () => {
     return (
         <div className="fade-in">
             <div className="mb-10">
-                <h2 className="text-3xl font-bold text-[#333333]">Manage <span className="text-[#2bb673]">Tasks</span></h2>
-                <p className="text-gray-500 font-medium">Monitor and regulate all job postings across the MicroEarn marketplace</p>
+                <h2 className="text-3xl font-bold text-[#333333] dark:text-white">Manage <span className="text-[#2bb673]">Tasks</span></h2>
+                <p className="text-gray-500 dark:text-gray-400 font-medium">Monitor and regulate all job postings across the MicroEarn marketplace</p>
             </div>
 
-            <div className="bg-white rounded-2xl border border-gray-100 shadow-premium overflow-hidden">
+            <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-premium overflow-hidden transition-colors duration-300">
                 <div className="overflow-x-auto">
                     <table className="table w-full border-collapse">
                         <thead>
-                            <tr className="bg-[#f9f9f9] text-gray-400 uppercase text-[10px] tracking-widest font-black border-b border-gray-100">
+                            <tr className="bg-[#f9f9f9] dark:bg-gray-700 text-gray-400 uppercase text-[10px] tracking-widest font-black border-b border-gray-100 dark:border-gray-600">
                                 <th className="py-6 px-8 text-left">Task Identification</th>
                                 <th>Buyer Info</th>
                                 <th>Needs</th>
@@ -55,28 +55,28 @@ const ManageTasks = () => {
                                 <th className="text-center px-8">Actions</th>
                             </tr>
                         </thead>
-                        <tbody className="divide-y divide-gray-50">
+                        <tbody className="divide-y divide-gray-50 dark:divide-gray-700">
                             {tasks.map((task) => (
-                                <tr key={task._id} className="hover:bg-green-50/20 transition-colors group">
+                                <tr key={task._id} className="hover:bg-green-50/20 dark:hover:bg-green-900/10 transition-colors group">
                                     <td className="py-6 px-8">
                                         <div className="flex items-center gap-4">
-                                            <div className="w-14 h-14 rounded-xl overflow-hidden border border-gray-100 flex-shrink-0">
+                                            <div className="w-14 h-14 rounded-xl overflow-hidden border border-gray-100 dark:border-gray-700 flex-shrink-0">
                                                 <img src={task.task_image_url} alt="t" className="w-full h-full object-cover" />
                                             </div>
                                             <div className="flex flex-col">
-                                                <span className="font-bold text-[#333333] group-hover:text-[#2bb673] transition-colors leading-tight">{task.task_title}</span>
+                                                <span className="font-bold text-[#333333] dark:text-white group-hover:text-[#2bb673] transition-colors leading-tight">{task.task_title}</span>
                                                 <span className="text-[10px] font-black text-gray-400 uppercase mt-1">ID: {task._id.slice(-8)}</span>
                                             </div>
                                         </div>
                                     </td>
                                     <td>
                                         <div className="flex flex-col">
-                                            <span className="text-sm font-bold text-gray-600">{task.buyer_name}</span>
+                                            <span className="text-sm font-bold text-gray-600 dark:text-gray-300">{task.buyer_name}</span>
                                             <span className="text-[10px] font-medium text-gray-400">{task.buyer_email}</span>
                                         </div>
                                     </td>
                                     <td>
-                                        <div className="flex items-center gap-2 text-sm font-bold text-[#333333]">
+                                        <div className="flex items-center gap-2 text-sm font-bold text-[#333333] dark:text-gray-300">
                                             <FaUserClock className="text-[#2bb673]" />
                                             <span>{task.required_workers}</span>
                                         </div>
@@ -89,7 +89,7 @@ const ManageTasks = () => {
                                     </td>
                                     <td className="text-center px-8">
                                         <div className="flex items-center justify-center gap-3">
-                                            <button 
+                                            <button
                                                 onClick={() => handleDelete(task._id)}
                                                 className="w-10 h-10 flex items-center justify-center rounded-xl bg-red-50 text-red-500 hover:bg-red-500 hover:text-white transition-all shadow-sm"
                                             >
