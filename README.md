@@ -3,11 +3,11 @@
 MicroEarn is a robust micro-tasking and earning platform that connects Buyers (task creators) with Workers (task performers). Buyers can post simple online tasks, and Workers can earn coins by completing them. The platform features a secure payment system, role-based dashboards, and a coin-based economy.
 
 ## 🚀 Live Site
-**URL:** [https://micro-earn-demo.web.app](https://micro-earn-demo.web.app) (Placeholder)
+**URL:** [https://micro-earn-demo.web.app](https://micro-task-870de.web.app/)
 
 ## 🔑 Admin Credentials
-*   **Email:** `admin@microearn.com`
-*   **Password:** `Admin@123`
+*   **Email:** `chysaifurrahmanbd@gmail.com`
+*   **Password:** `Phb12a13`
 
 ## ✨ Key Features (10+)
 
